@@ -887,6 +887,52 @@ select.fi { cursor: pointer; }
 .btt { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; border-radius: 50%; background: var(--acid); color: #000; border: none; font-size: 18px; font-weight: 800; cursor: pointer; z-index: 900; opacity: 0; transform: translateY(20px); transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
 .btt.show { opacity: 1; transform: translateY(0); }
 .btt:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(204,255,0,0.3); }
+
+/* ── VIDEO PLAY BUTTON ── */
+.ex-video-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3);
+  color: #ef4444; font-size: 9px; cursor: pointer;
+  margin-left: 6px; vertical-align: middle;
+  transition: all 0.2s; flex-shrink: 0;
+}
+.ex-video-btn:hover {
+  background: rgba(239,68,68,0.3); border-color: #ef4444;
+  transform: scale(1.15); box-shadow: 0 0 12px rgba(239,68,68,0.3);
+}
+.ex-video-btn svg { width: 10px; height: 10px; fill: currentColor; }
+.ex-name-wrap { display: inline-flex; align-items: center; gap: 0; }
+
+/* ── VIDEO MODAL ── */
+.video-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.video-overlay.active { opacity: 1; pointer-events: all; }
+.video-container {
+  position: relative; width: 90vw; max-width: 800px;
+  aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(239,68,68,0.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.video-container iframe {
+  width: 100%; height: 100%; border: none;
+}
+.video-close {
+  position: absolute; top: -40px; right: 0;
+  background: none; border: none; color: #fff;
+  font-size: 28px; cursor: pointer; padding: 4px 8px;
+  transition: color 0.2s;
+}
+.video-close:hover { color: var(--acid); }
+.video-title {
+  position: absolute; bottom: -36px; left: 0; right: 0;
+  text-align: center; font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; color: var(--dim); letter-spacing: 1px;
+}
 </style>
 <!-- CDN: GSAP + ScrollTrigger + VanillaTilt -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -3942,9 +3988,123 @@ body::before {
     <div id="exModalBody"></div>
   </div>
 </div>
+
+<!-- VIDEO MODAL -->
+<div class="video-overlay" id="videoOverlay">
+  <div class="video-container">
+    <button class="video-close" id="videoClose">&#10005;</button>
+    <iframe id="videoFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-title" id="videoTitle"></div>
+  </div>
+</div>
 <script>
 (function(){
 'use strict';
+
+/* ══════════════════════════════════════
+   EXERCISE VIDEO MAP (YouTube IDs)
+   ══════════════════════════════════════ */
+const EXERCISE_VIDEOS = {
+  'Barbell Flat Bench Press': '4Y2ZdHCOXok',
+  'Incline Dumbbell Press (30°)': '8iPEnn-ltC8',
+  'Incline DB Fly ↔ Pec Deck': 'VDU5bzE2qOE',
+  'Machine Chest Press (neutral grip)': 'VmB1G1K7v94',
+  'Seated Dumbbell OHP': 'qitQHqNZbeM',
+  'Cable Lateral Raise (behind body)': 'CVXfAx42wfw',
+  'Overhead Cable Tricep Extension (rope)': 'GzmlxvSFE7A',
+  'Tricep Pushdown (straight bar)': 'e0FrR9V0HEI',
+  'Cable Face Pull (High)': '0Po47vvj9g4',
+  'Cable Crunch (kneeling)': 'AV5PmZJIrrw',
+  'Barbell Bent-Over Row (overhand, wide)': 'FWJR5Ve8bnQ',
+  'Weighted Pull-Ups (wide, pronated)': 'QZue7F_Zk3A',
+  'Close-Grip Lat Pulldown (neutral)': 'sK4Rvug6ufo',
+  'Seated Cable Row (close, neutral grip)': '_b6ch2nIchk',
+  'Reverse Pec Deck': 'v0rJuhEa59c',
+  'Barbell Shrugs': 'qXrTDQG1oUQ',
+  'EZ Bar Curl (wide grip)': '5NsFLGUf0Fo',
+  'Incline Dumbbell Curl (45° bench)': 'rAx_tf13V5k',
+  'Concentration Curl (seated)': 'Jvj2wV0vOYU',
+  'Reverse Curl (EZ bar)': 'SDFZBaJcTsU',
+  'Wrist Curl Machine (both grips)': 'wGi7k6JGs1k',
+  'Hanging Leg Raise': 'Pr1ieGZ5atk',
+  'Barbell Back Squat (high bar)': '4Y2ZdHCOXok',
+  'Hack Squat': '-lAnEGH2blE',
+  'Leg Extension': 'YyvSfVjQeL0',
+  'Lying Leg Curl': '3gZm9wGTsEo',
+  'Bulgarian Split Squat (dumbbells)': 'Ozv-OPuVw6A',
+  'Standing Calf Raise (machine)': 'YMmgqO8Jo-k',
+  'Seated Calf Raise': 'SorIB5_zO9A',
+  'Kettlebell Swing (Russian)': 'Y2HTBalOeBY',
+  'Conventional Deadlift': 'VL5Ab0T07e4',
+  'Romanian Deadlift (barbell)': '_oyxCn2iSjU',
+  'Barbell Hip Thrust': 'Zp26q4BY5HE',
+  'Seated Leg Curl': 'vl5nUdE9mWM',
+  'Leg Press Calf Raise': 'YMmgqO8Jo-k',
+  'Hip Abductor Machine': '-lAnEGH2blE',
+  'Machine Hip Adduction': '-lAnEGH2blE',
+  'Suitcase Carry (heavy DB, one side)': 'Y2HTBalOeBY',
+  'Barbell Overhead Press (standing)': 'bMksDb5a3P0',
+  'Dumbbell Flat Press': 'VmB1G1K7v94',
+  'Dumbbell Lateral Raise (seated, leaned)': 'qitQHqNZbeM',
+  'Weighted Chin-Ups (supinated grip)': 'QZue7F_Zk3A',
+  'Chest-Supported Dumbbell Row': 'XLoIFFXjFyY',
+  'Dumbbell Shrugs': 'qXrTDQG1oUQ',
+  'Cross-Body Hammer Curl': 'rAx_tf13V5k',
+  'Dip Machine (tricep focus)': 'EBnq0A5L_wo',
+  'Cable Face Pull (rope, high)': '0Po47vvj9g4',
+  'Front Squat': 'wyDbagKS7Rg',
+  'Pallof Press (cable)': 'xeFp4MXad98',
+  'Ab Wheel Rollout (kneeling)': 'PK4n7qJpOhM',
+  'Barbell Back Squat': 'Ua4dhqiozEI'
+};
+
+/* ── Video Modal Logic ── */
+function initVideoButtons() {
+  const overlay = document.getElementById('videoOverlay');
+  const frame = document.getElementById('videoFrame');
+  const titleEl = document.getElementById('videoTitle');
+  const closeBtn = document.getElementById('videoClose');
+
+  function openVideo(name) {
+    const id = EXERCISE_VIDEOS[name];
+    if (!id) return;
+    frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    titleEl.textContent = name;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideo() {
+    overlay.classList.remove('active');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeVideo();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closeVideo();
+  });
+
+  // Inject play buttons next to every exercise name
+  const playSVG = '<svg viewBox="0 0 16 16"><path d="M6 3.5v9l7-4.5z"/></svg>';
+  document.querySelectorAll('.ex-name').forEach(function(el) {
+    const name = el.textContent.trim();
+    if (EXERCISE_VIDEOS[name]) {
+      const btn = document.createElement('button');
+      btn.className = 'ex-video-btn';
+      btn.innerHTML = playSVG;
+      btn.title = 'Watch tutorial: ' + name;
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openVideo(name);
+      });
+      el.parentNode.insertBefore(btn, el.nextSibling);
+    }
+  });
+}
 
 /* ══════════════════════════════════════
    DATA
@@ -5760,6 +5920,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════
 
   initForgeEffects();
+  initVideoButtons();
 
   // ── GSAP FALLBACK: Unstick any elements left at opacity:0 ──
   // GSAP's gsap.from() sets opacity:0 on load, but ScrollTrigger may never
