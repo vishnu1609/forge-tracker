@@ -564,6 +564,43 @@ select.fi { cursor: pointer; }
 .gloss-hint { font-size: 10px; color: var(--muted); margin-top: 8px; }
 .gloss-def { font-size: 12px; color: var(--dim); line-height: 1.6; }
 
+/* ── KEGEL / PELVIC FLOOR ── */
+.kegel-section { padding: 40px 64px 40px; max-width: 1400px; margin: 0 auto; }
+@media (max-width: 768px) { .kegel-section { padding: 40px 20px; } }
+.kegel-toggle {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; color: var(--bright); cursor: pointer;
+  text-align: left; padding: 0;
+}
+.kegel-chev { font-size: 24px; color: var(--muted); transition: transform .3s; }
+.kegel-toggle[aria-expanded="true"] .kegel-chev { transform: rotate(180deg); }
+.kegel-content { overflow: hidden; transition: max-height .5s ease; max-height: 0; }
+.kegel-content.open { max-height: 2000px; }
+.kegel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 28px; }
+.kegel-card {
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: 10px; padding: 20px;
+}
+.kegel-card-title {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 14px; letter-spacing: 2px; color: var(--acid); margin-bottom: 10px;
+}
+.kegel-card p, .kegel-card li { font-size: 13px; color: var(--dim); line-height: 1.7; }
+.kegel-card ul { padding-left: 18px; margin: 8px 0 0; }
+.kegel-card li { margin-bottom: 4px; }
+.kegel-card .kegel-highlight { color: var(--bright); font-weight: 600; }
+.kegel-protocol {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin-top: 20px;
+}
+.kp-card {
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  border-radius: 10px; padding: 16px; text-align: center;
+}
+.kp-phase { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 2px; color: var(--acid); }
+.kp-reps { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 28px; color: var(--bright); margin: 6px 0; }
+.kp-detail { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
 /* ── WAIST PROJECTION ── */
 .waist-section { padding: 40px 64px 80px; max-width: 1400px; margin: 0 auto; }
 @media (max-width: 768px) { .waist-section { padding: 40px 20px; } }
@@ -3913,6 +3950,91 @@ body::before {
 </section>
 <div class="divider"></div>
 
+<!-- KEGEL / PELVIC FLOOR -->
+<section class="kegel-section" id="kegel">
+  <button class="kegel-toggle reveal" id="kegelToggle" aria-expanded="false">
+    <div>
+      <div class="sec-tag">// Daily Practice</div>
+      <h2 class="sec-h">Pelvic Floor</h2>
+      <div class="sec-sub" style="max-width:520px;">Kegel exercises strengthen the pelvic floor muscles. Do them daily &mdash; no equipment, no gym needed. Click to expand.</div>
+    </div>
+    <span class="kegel-chev">&#9662;</span>
+  </button>
+  <div class="kegel-content" id="kegelContent">
+
+    <div class="kegel-grid">
+      <div class="kegel-card reveal">
+        <div class="kegel-card-title">WHAT &amp; WHY</div>
+        <p>Kegels target the <span class="kegel-highlight">pubococcygeus (PC) muscle</span> &mdash; the hammock of muscle running from pubic bone to tailbone. A strong pelvic floor improves:</p>
+        <ul>
+          <li>Core stability &amp; intra-abdominal pressure during heavy lifts</li>
+          <li>Bladder &amp; bowel control</li>
+          <li>Sexual health &amp; endurance</li>
+          <li>Posture support (works with deep core &amp; diaphragm)</li>
+        </ul>
+      </div>
+      <div class="kegel-card reveal">
+        <div class="kegel-card-title">HOW TO DO IT</div>
+        <ul>
+          <li><span class="kegel-highlight">Find the muscle:</span> Imagine stopping urine mid-flow &mdash; that squeeze is your PC muscle</li>
+          <li><span class="kegel-highlight">Contract:</span> Squeeze and lift the pelvic floor upward (don't push down)</li>
+          <li><span class="kegel-highlight">Hold:</span> Maintain the squeeze for the prescribed duration</li>
+          <li><span class="kegel-highlight">Release:</span> Fully relax for the same duration as the hold</li>
+          <li><span class="kegel-highlight">Breathe:</span> Keep breathing normally &mdash; don't hold your breath</li>
+          <li>Do NOT flex abs, glutes, or thighs &mdash; isolate the pelvic floor only</li>
+        </ul>
+      </div>
+      <div class="kegel-card reveal">
+        <div class="kegel-card-title">WHEN TO DO THEM</div>
+        <p>Kegels can be done <span class="kegel-highlight">anywhere, anytime</span> &mdash; nobody can tell. Best times:</p>
+        <ul>
+          <li><span class="kegel-highlight">Morning:</span> Right after waking up (lying in bed)</li>
+          <li><span class="kegel-highlight">Commute:</span> While sitting in traffic or on the bus</li>
+          <li><span class="kegel-highlight">Desk work:</span> Set a reminder every 2-3 hours</li>
+          <li><span class="kegel-highlight">Before sleep:</span> Final set while lying down</li>
+        </ul>
+        <p style="margin-top:10px;">Aim for <span class="kegel-highlight">3 sessions per day</span>, spread throughout the day.</p>
+      </div>
+    </div>
+
+    <div class="sec-tag reveal" style="margin-top:32px;">// 8-Week Progressive Protocol</div>
+    <div class="kegel-protocol">
+      <div class="kp-card reveal">
+        <div class="kp-phase">WEEK 1-2</div>
+        <div class="kp-reps">5s hold</div>
+        <div class="kp-detail">10 reps &times; 3 sets/day<br>5s squeeze, 5s rest<br>Total: 30 reps/day</div>
+      </div>
+      <div class="kp-card reveal">
+        <div class="kp-phase">WEEK 3-4</div>
+        <div class="kp-reps">8s hold</div>
+        <div class="kp-detail">10 reps &times; 3 sets/day<br>8s squeeze, 5s rest<br>Add 5 quick flicks per set</div>
+      </div>
+      <div class="kp-card reveal">
+        <div class="kp-phase">WEEK 5-6</div>
+        <div class="kp-reps">10s hold</div>
+        <div class="kp-detail">15 reps &times; 3 sets/day<br>10s squeeze, 5s rest<br>Add 10 quick flicks per set</div>
+      </div>
+      <div class="kp-card reveal">
+        <div class="kp-phase">WEEK 7-8</div>
+        <div class="kp-reps">12s hold</div>
+        <div class="kp-detail">15 reps &times; 3 sets/day<br>12s squeeze, 5s rest<br>Add elevator Kegels (3 levels)</div>
+      </div>
+    </div>
+
+    <div class="kegel-card reveal" style="margin-top:16px;">
+      <div class="kegel-card-title">ADVANCED VARIATIONS (AFTER WEEK 8)</div>
+      <ul>
+        <li><span class="kegel-highlight">Elevator Kegels:</span> Contract in 3 stages (floor 1, 2, 3) &mdash; hold each level 3s, then release in 3 stages</li>
+        <li><span class="kegel-highlight">Quick Flicks:</span> Rapid contract-release at 1 rep/second for 20-30 reps</li>
+        <li><span class="kegel-highlight">Reverse Kegels:</span> Gently push/relax the pelvic floor (like bearing down lightly) &mdash; trains the release phase</li>
+        <li><span class="kegel-highlight">Kegel + Breathing:</span> Contract on exhale, release on inhale &mdash; syncs with diaphragm for full core integration</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<div class="divider"></div>
+
 <!-- WAIST PROJECTION -->
 <section class="waist-section" id="waist">
   <button class="waist-toggle reveal" id="waistToggle" aria-expanded="false">
@@ -4955,6 +5077,24 @@ function initWaist() {
   });
 }
 
+function initKegel() {
+  const toggle = $('#kegelToggle');
+  const content = $('#kegelContent');
+  if (!toggle || !content) return;
+  toggle.addEventListener('click', () => {
+    const open = content.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    if (open) {
+      setTimeout(() => {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        content.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+      }, 100);
+    }
+  });
+}
+
 /* ══════════════════════════════════════
    TRACKER — Body Metrics, Workout Log, PRs, Heatmap, Export/Import
    ══════════════════════════════════════ */
@@ -5878,6 +6018,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNutrition();
   initGlossary();
   initWaist();
+  initKegel();
   initTracker();
   initReports();
   initMuscleMap();
