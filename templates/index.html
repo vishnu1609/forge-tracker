@@ -2806,7 +2806,7 @@ body::before {
   <canvas class="hero-canvas" id="heroCanvas"></canvas>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span class="live-dot"></span>PPL / UPPER-LOWER · 5 DAYS/WEEK · VISHNU TEJA</div>
+    <div class="hero-eyebrow"><span class="live-dot"></span>UPPER-LOWER / PPL · 5 DAYS/WEEK · VISHNU TEJA</div>
     <h1 class="hero-title" id="heroTitle">BURN<br>BUILD<br><span class="acid">BECOME.</span></h1>
     <p class="hero-sub">A 32-week body recomp protocol. Five days, three phases, one outcome. Track every rep, every kilo, every inch — your transformation starts here.</p>
     <div class="hero-cta">
@@ -2841,13 +2841,13 @@ body::before {
     <div class="sec-sub">Click any training day to jump to that session's full exercise breakdown. Today is highlighted automatically.</div>
   </div>
   <div class="week-grid">
-    <button class="day-card clickable reveal" data-day="1" data-session="push"><span class="dc-day">MONDAY</span><span class="dc-type push-c">PUSH</span><span class="dc-name">Chest + Shoulders + Triceps</span><span class="dc-bar push-b"></span><span class="dc-time">~70 min · 11 exercises</span></button>
-    <button class="day-card clickable reveal" data-day="2" data-session="pull"><span class="dc-day">TUESDAY</span><span class="dc-type pull-c">PULL</span><span class="dc-name">Back + Biceps + Rear Delts</span><span class="dc-bar pull-b"></span><span class="dc-time">~70 min · 12 exercises</span></button>
-    <button class="day-card clickable reveal" data-day="3" data-session="legs"><span class="dc-day">WEDNESDAY</span><span class="dc-type legs-c">LEGS</span><span class="dc-name">Quads + Hams + Glutes + Calves</span><span class="dc-bar legs-b"></span><span class="dc-time">~75 min · 12 exercises</span></button>
-    <div class="day-card rest-day reveal" data-day="4"><span class="dc-day">THURSDAY</span><span class="dc-type rest-c">REST</span><span class="dc-name">Walk + Foam Roll + Stretch</span><span class="dc-bar rest-b"></span><span class="dc-time">30-45 min active recovery</span></div>
-    <button class="day-card clickable reveal" data-day="5" data-session="upper"><span class="dc-day">FRIDAY</span><span class="dc-type upper-c">UPPER</span><span class="dc-name">Full Upper Body</span><span class="dc-bar upper-b"></span><span class="dc-time">~65 min · 12 exercises</span></button>
-    <button class="day-card clickable reveal" data-day="6" data-session="lower"><span class="dc-day">SATURDAY</span><span class="dc-type lower-c">LOWER</span><span class="dc-name">Full Lower Body</span><span class="dc-bar lower-b"></span><span class="dc-time">~70 min · 11 exercises</span></button>
-    <div class="day-card rest-day reveal" data-day="0"><span class="dc-day">SUNDAY</span><span class="dc-type rest-c">REST</span><span class="dc-name">Full Recovery</span><span class="dc-bar rest-b"></span><span class="dc-time">Active rest</span></div>
+    <button class="day-card clickable reveal" data-day="1" data-session="upper"><span class="dc-day">MONDAY</span><span class="dc-type upper-c">UPPER</span><span class="dc-name">Full Upper Body</span><span class="dc-bar upper-b"></span><span class="dc-time">~65 min · 10 exercises</span></button>
+    <button class="day-card clickable reveal" data-day="2" data-session="lower"><span class="dc-day">TUESDAY</span><span class="dc-type lower-c">LOWER</span><span class="dc-name">Posterior Chain + Quads + Calves</span><span class="dc-bar lower-b"></span><span class="dc-time">~70 min · 10 exercises</span></button>
+    <div class="day-card rest-day reveal" data-day="3"><span class="dc-day">WEDNESDAY</span><span class="dc-type rest-c">REST</span><span class="dc-name">Mobility + Foam Roll + Walk</span><span class="dc-bar rest-b"></span><span class="dc-time">30-40 min active recovery</span></div>
+    <button class="day-card clickable reveal" data-day="4" data-session="push"><span class="dc-day">THURSDAY</span><span class="dc-type push-c">PUSH</span><span class="dc-name">Chest + Shoulders + Triceps</span><span class="dc-bar push-b"></span><span class="dc-time">~70 min · 10 exercises</span></button>
+    <button class="day-card clickable reveal" data-day="5" data-session="pull"><span class="dc-day">FRIDAY</span><span class="dc-type pull-c">PULL</span><span class="dc-name">Back + Biceps + Rear Delts</span><span class="dc-bar pull-b"></span><span class="dc-time">~65 min · 12 exercises</span></button>
+    <button class="day-card clickable reveal" data-day="6" data-session="legs"><span class="dc-day">SATURDAY</span><span class="dc-type legs-c">LEGS</span><span class="dc-name">Quads + Hams + Glutes + Calves</span><span class="dc-bar legs-b"></span><span class="dc-time">~75 min · 10 exercises</span></button>
+    <div class="day-card rest-day reveal" data-day="0"><span class="dc-day">SUNDAY</span><span class="dc-type rest-c">REST</span><span class="dc-name">Full Recovery</span><span class="dc-bar rest-b"></span><span class="dc-time">Sleep 8+ hrs · 10k steps</span></div>
   </div>
   <div class="today-banner reveal" id="todayBanner" style="display:none;">
     <div class="tb-icon" id="tbIcon"></div>
@@ -3364,20 +3364,119 @@ body::before {
 <div id="sessionsBody">
 
   <!-- ═══════════════════════════════════════════
-       PUSH — Monday · Chest + Shoulders + Triceps
+       UPPER — Monday · Full Upper Body
+       ═══════════════════════════════════════════ -->
+  <article class="sb reveal" id="upper">
+    <div class="color-bar upper-b"></div>
+    <button class="sb-hdr" aria-expanded="false" aria-controls="upper-body">
+      <div class="sb-letter" style="color:var(--orange)">U</div>
+      <div class="sb-info">
+        <div class="sb-day">MONDAY · UPPER</div>
+        <div class="sb-name">CHEST + BACK + ALL 3 DELT HEADS + BICEPS + TRICEPS + TRAPS</div>
+        <div class="sb-muscles">Pecs · Lats · Rhomboids · Anterior/Lateral/Posterior Delts · Biceps · Triceps · Upper Traps · Core</div>
+      </div>
+      <div class="sb-right">
+        <div class="sb-dur">65 MIN</div>
+        <div class="sb-cnt">10 EXERCISES</div>
+        <div class="sb-chev">&#9662;</div>
+      </div>
+    </button>
+    <div class="sb-body" id="upper-body"><div class="sb-inner">
+      <div style="padding:16px 0 20px;border-bottom:1px solid var(--border);margin-bottom:16px;">
+        <div style="font-size:10px;letter-spacing:2px;color:var(--acid);margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;">WARM-UP · 6 MIN</div>
+        <div style="font-size:12px;color:var(--dim);line-height:2;">
+          <strong style="color:var(--bright)">1.</strong> Band Pull-Aparts — 2 × 15 <span style="color:var(--muted)">(rear delts, scapular retractors)</span><br>
+          <strong style="color:var(--bright)">2.</strong> Cat-Cow + Thoracic Rotations — 1 min <span style="color:var(--muted)">(spine mobility for overhead work)</span><br>
+          <strong style="color:var(--bright)">3.</strong> OHP Ramp: bar×10 → 50%×6 → 70%×3 → 85%×2 <span style="color:var(--muted)">(prime for heavy pressing)</span>
+        </div>
+      </div>
+    <div class="ex-table-wrap"><table class="ex-table">
+      <thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Tempo</th><th>Rest</th><th>Coaching Cue</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="ex-num" style="color:var(--acid)">S1</td><td><span class="ex-name">Barbell Overhead Press (standing)</span><span class="ex-equip">Barbell · Rack · STRENGTH</span></td><td class="sets-cell">4 × 4-6<span class="sets-ph">RIR 1-2 · Anterior/lateral delt · triceps · upper chest · core</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-1</td><td class="rest-cell">3 min</td><td class="note-cell"><strong>STRICT — no leg drive. Bar path directly over mid-foot. Squeeze glutes for stability.</strong> Add 2.5kg when you hit 6 on all sets. This builds the overhead pressing strength base.</td><td><button class="log-quick-btn" data-exercise="Barbell OHP" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num" style="color:var(--acid)">S2</td><td><span class="ex-name">Weighted Chin-Ups (supinated grip)</span><span class="ex-equip">Pull-up Bar + Dip Belt · STRENGTH</span></td><td class="sets-cell">4 × 4-6<span class="sets-ph">RIR 1-2 · Lats · biceps · lower traps · rhomboids</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">3 min</td><td class="note-cell"><strong>Dead hang between reps — full lat stretch. Chest to bar. Drive elbows down and back.</strong> Supinated grip recruits biceps heavily. Add weight when you hit 6 on all sets. <em style="color:var(--muted)">Alt: Supinated Lat Pulldown</em></td><td><button class="log-quick-btn" data-exercise="Weighted Chin-Ups" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">01</td><td><span class="ex-name">Dumbbell Flat Press</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Mid chest · anterior delt · triceps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">—</td><td class="note-cell"><strong>Go straight into A2.</strong> Deep stretch at bottom — let DBs drop LOW past chest level. This covers the hypertrophy chest stimulus. <span class="ttag tt-ss">SUPERSET A1</span></td><td><button class="log-quick-btn" data-exercise="Dumbbell Flat Press" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">02</td><td><span class="ex-name">Chest-Supported Dumbbell Row</span><span class="ex-equip">30° Incline Bench + DBs</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Lats · rhomboids · mid traps · rear delts</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-1-1-0</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Pronated grip for more upper back. Squeeze scapulae at top 1s.</strong> Chest support = zero lower back stress. Saves erectors for tomorrow's deadlifts. <span class="ttag tt-ss">SUPERSET A2</span></td><td><button class="log-quick-btn" data-exercise="Chest-Supported DB Row" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">03</td><td><span class="ex-name">Dumbbell Lateral Raise (seated, leaned)</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">4 × 12-15<span class="sets-ph">Lateral delt (medial head)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Lean forward 15° to reduce front delt. Raise until arms parallel to floor. Hold 2s.</strong> Drop set on final set: drop 30%, rep to failure. This + cable laterals on Push day = boulder shoulders. <span class="ttag tt-ds">DROP SET final</span></td><td><button class="log-quick-btn" data-exercise="DB Lateral Raise" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">04</td><td><span class="ex-name">Cross-Body Hammer Curl</span><span class="ex-equip">Dumbbells · Standing</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Brachialis · brachioradialis · bicep long head</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-1</td><td class="rest-cell">—</td><td class="note-cell"><strong>Curl ACROSS body toward opposite shoulder.</strong> This hits brachialis hard — sits under bicep and pushes the peak UP. Go immediately into B2. <span class="ttag tt-ss">SUPERSET B1</span></td><td><button class="log-quick-btn" data-exercise="Cross-Body Hammer Curl" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">05</td><td><span class="ex-name">Dips (BW → Weighted, tricep focus)</span><span class="ex-equip">Dip Bars / Dip Station · Upright Torso</span></td><td class="sets-cell">3 × 8-12<span class="sets-ph">Triceps all heads · lower chest · anterior delt</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Stay UPRIGHT — don't lean forward (lean = more chest, upright = more triceps).</strong> Full lockout at top, slow 3s eccentric, go deep until upper arm is parallel. Start bodyweight — once you hit 12 reps on all sets, add weight with a dip belt (start +5kg, progress from there). The king of tricep compounds. <span class="ttag tt-ss">SUPERSET B2</span> <em style="color:var(--muted)">Alt: Close-Grip Bench Press · Machine Dips</em></td><td><button class="log-quick-btn" data-exercise="Dips" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">06</td><td><span class="ex-name">Dumbbell Shrugs</span><span class="ex-equip">Heavy Dumbbells</span></td><td class="sets-cell">3 × 12-15<span class="sets-ph">Upper traps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">1-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Straight UP — no rolling.</strong> Squeeze at top 2s. Let traps stretch fully at bottom. Big traps frame the shoulders and complete the aesthetic yoke look. <em style="color:var(--muted)">Alt: Barbell or Trap Bar Shrugs</em></td><td><button class="log-quick-btn" data-exercise="Dumbbell Shrugs" data-session="Upper">LOG</button></td></tr>
+        <tr><td class="ex-num">07</td><td><span class="ex-name">Cable Face Pull (rope, high)</span><span class="ex-equip">Cable · Rope · High Pulley</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Rear delts + external rotators + mid traps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Pull to forehead. At end range, externally rotate — thumbs point backward.</strong> Hits rear delts AND rotator cuff. Shoulder health + aesthetics. Moved here from Pull day for better weekly rear delt distribution.</td><td><button class="log-quick-btn" data-exercise="Cable Face Pull" data-session="Upper">LOG</button></td></tr>
+        <tr class="abs-row"><td class="ex-num" style="color:var(--acid)">CORE</td><td><span class="ex-name">Ab Wheel Rollout (kneeling)</span><span class="ex-equip">Ab Wheel + Mat</span></td><td class="sets-cell">3 × 8-10<span class="sets-ph">Rectus abdominis · TVA · serratus · lats (anti-extension)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-1-3-0</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>SLOW out (3s), pause at full extension (1s), SLOW return (3s).</strong> Tuck pelvis — don't let lower back sag. One of the best core exercises. Don't skip it.</td><td><button class="log-quick-btn" data-exercise="Ab Wheel Rollout" data-session="Upper">LOG</button></td></tr>
+      </tbody>
+    </table></div>
+    <div class="daily-totals" style="margin-top:16px;">
+      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;">VOLUME:</strong> <span style="color:var(--dim);font-size:11px;">Chest 3 sets · Back 7 sets · Shoulders (Lateral) 4 sets · Rear Delts 3 sets · Biceps 3 sets · Triceps 7 sets · Traps 3 sets · Core 3 sets = 33 total sets</span><br>
+      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;margin-top:4px;display:inline-block;">NOTE:</strong> <span style="color:var(--dim);font-size:11px;">Supersets (A1/A2, B1/B2) keep session under 65 min despite high set count. Rest only after completing both exercises.</span>
+    </div>
+    </div></div>
+  </article>
+
+  <!-- ═══════════════════════════════════════════
+       LOWER — Tuesday · Full Lower Body
+       ═══════════════════════════════════════════ -->
+  <article class="sb reveal" id="lower">
+    <div class="color-bar lower-b"></div>
+    <button class="sb-hdr" aria-expanded="false" aria-controls="lower-body">
+      <div class="sb-letter" style="color:var(--purple)">L</div>
+      <div class="sb-info">
+        <div class="sb-day">TUESDAY · LOWER</div>
+        <div class="sb-name">POSTERIOR CHAIN + QUADS + GLUTES + ADDUCTORS + CALVES</div>
+        <div class="sb-muscles">Hamstrings · Glute Max/Medius · Erectors · Traps · Quads · VMO · Adductors · Gastrocnemius · Core</div>
+      </div>
+      <div class="sb-right">
+        <div class="sb-dur">70 MIN</div>
+        <div class="sb-cnt">10 EXERCISES</div>
+        <div class="sb-chev">&#9662;</div>
+      </div>
+    </button>
+    <div class="sb-body" id="lower-body"><div class="sb-inner">
+      <div style="padding:16px 0 20px;border-bottom:1px solid var(--border);margin-bottom:16px;">
+        <div style="font-size:10px;letter-spacing:2px;color:var(--acid);margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;">WARM-UP · 10 MIN</div>
+        <div style="font-size:12px;color:var(--dim);line-height:2;">
+          <strong style="color:var(--bright)">1.</strong> 5 min Incline Walk or Rower <span style="color:var(--muted)">(general warm-up)</span><br>
+          <strong style="color:var(--bright)">2.</strong> 90/90 Hip Switches — 2 × 8 each side <span style="color:var(--muted)">(hip internal/external rotation mobility)</span><br>
+          <strong style="color:var(--bright)">3.</strong> Glute Bridge + Clamshell — 1 × 12 each <span style="color:var(--muted)">(activate glute max + medius)</span><br>
+          <strong style="color:var(--bright)">4.</strong> Deadlift Ramp: 40%×6 → 60%×4 → 75%×2 → 85%×1 <span style="color:var(--muted)">(singles to prime CNS, no fatigue)</span>
+        </div>
+      </div>
+    <div class="ex-table-wrap"><table class="ex-table">
+      <thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Tempo</th><th>Rest</th><th>Coaching Cue</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="ex-num" style="color:var(--acid)">S1</td><td><span class="ex-name">Conventional Deadlift</span><span class="ex-equip">Barbell · Plates · STRENGTH</span></td><td class="sets-cell">4 × 3-5<span class="sets-ph">RIR 1-2 · Entire posterior chain: hams · glutes · erectors · traps · lats · forearms</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">1-0-1-1</td><td class="rest-cell">3-4 min</td><td class="note-cell"><strong>RESET each rep from the floor. Big brace before EVERY pull. Push the floor away — don't pull the bar up.</strong> Add 5kg when you hit 5 on all sets. Most anabolic lift in existence.</td><td><button class="log-quick-btn" data-exercise="Conventional Deadlift" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">01</td><td><span class="ex-name">Smith Machine Squat ↔ Heel-Elevated Goblet Squat</span><span class="ex-equip">Smith Machine (narrow stance, plates under heels) OR Heavy DB + Heel Wedge · PICK ONE EACH WEEK</span></td><td class="sets-cell">3 × 6-8<span class="sets-ph">Quads (upright torso = quad dominant) · core</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-1-1-0</td><td class="rest-cell">2 min</td><td class="note-cell"><strong>OPTION A — Smith Machine Squat:</strong> Narrow stance, feet slightly forward, plates under heels for max quad bias. Go deep — 3s eccentric, 1s pause at bottom, explode up. Heavier loading than goblet squat. <strong>OPTION B — Heel-Elevated Goblet Squat:</strong> Hold heavy DB at chest, heels on plates or wedge. Deep squat, elbows inside knees, upright torso. Great quad stretch and mind-muscle connection. Pick one each week — both replace front squat perfectly. <span class="ttag" style="background:rgba(168,85,247,0.15);color:#a855f7;border-color:rgba(168,85,247,0.3);">ROTATE WEEKLY</span></td><td><button class="log-quick-btn" data-exercise="Smith Machine Squat / Goblet Squat" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">02</td><td><span class="ex-name">Bulgarian Split Squat (dumbbells)</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">3 × 8-10 each<span class="sets-ph">Quads · VMO · glute medius · hip stabilizers</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-0</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Rear foot on bench. Upright torso = more quad. Lean forward = more glute. GO UPRIGHT.</strong> Knee tracks over 2nd toe. Fixes imbalances. <em style="color:var(--muted)">Alt: Walking Lunges or Single-Leg Leg Press</em></td><td><button class="log-quick-btn" data-exercise="Bulgarian Split Squat" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">03</td><td><span class="ex-name">Seated Leg Curl</span><span class="ex-equip">Seated Leg Curl Machine</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Hamstrings (knee flexion · deep stretch)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-2</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Seat adjusted so pad is just above ankles.</strong> The seated position pre-stretches the hamstrings at the hip — better stretch than lying curl. Control the eccentric 3s, squeeze 2s at full contraction. Final set: partial reps to failure after hitting full ROM failure. <em style="color:var(--muted)">Alt: Lying Leg Curl</em></td><td><button class="log-quick-btn" data-exercise="Seated Leg Curl" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">04</td><td><span class="ex-name">Kettlebell Swing (Russian)</span><span class="ex-equip">Kettlebell · Open Floor</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Glutes · hamstrings · core · CARDIO BURST</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">explosive</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>HINGE, don't squat. Snap hips forward explosively — arms are just hooks.</strong> Bell to chest height (Russian style, not overhead). Squeeze glutes HARD at top. This builds explosive hip extension AND spikes your heart rate — it's strength and conditioning in one. <span class="ttag" style="background:rgba(239,68,68,0.15);color:#ef4444;border-color:rgba(239,68,68,0.3);">CARDIO BURST</span> <em style="color:var(--muted)">Alt: Cable Pull-Through or 45° Back Extension</em></td><td><button class="log-quick-btn" data-exercise="Kettlebell Swing" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">05</td><td><span class="ex-name">Machine Hip Adduction</span><span class="ex-equip">Adductor Machine</span></td><td class="sets-cell">3 × 12-15<span class="sets-ph">Adductor magnus · longus · brevis · gracilis</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Full stretch on eccentric — let legs go wide. Squeeze 2s at close.</strong> Adductors support squat and deadlift stability. Often neglected = often a weak link.</td><td><button class="log-quick-btn" data-exercise="Hip Adductor" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">06</td><td><span class="ex-name">Hip Abductor Machine</span><span class="ex-equip">Abductor Machine</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Glute medius · glute minimus · TFL</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Slow and controlled.</strong> Glute medius creates the upper glute shelf. Improves squat stability and knee tracking. Lean forward slightly to bias glute medius over TFL.</td><td><button class="log-quick-btn" data-exercise="Hip Abductor" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">07</td><td><span class="ex-name">Leg Press Calf Raise</span><span class="ex-equip">45° Leg Press Machine</span></td><td class="sets-cell">4 × 8-10<span class="sets-ph">Gastrocnemius (heavy overload, straight knee)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-2-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>HEAVY — leg press lets you go heavier than standing. Full deep stretch 2s, peak squeeze 2s.</strong> Straight knee = gastroc. Toes pointed straight ahead.</td><td><button class="log-quick-btn" data-exercise="Leg Press Calf Raise" data-session="Lower">LOG</button></td></tr>
+        <tr><td class="ex-num">08</td><td><span class="ex-name">Seated Calf Raise</span><span class="ex-equip">Seated Calf Machine</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Soleus (bent knee isolates soleus)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-2-1-1</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Higher reps — soleus is predominantly slow-twitch.</strong> Full ROM always. Bent knee = soleus. Soleus sits under gastroc and pushes it OUT — makes calves look bigger from the side. Pair with leg press calf raises above for complete calf coverage.</td><td><button class="log-quick-btn" data-exercise="Seated Calf Raise" data-session="Lower">LOG</button></td></tr>
+        <tr class="abs-row"><td class="ex-num" style="color:var(--acid)">CORE</td><td><span class="ex-name">Suitcase Carry (heavy DB, one side)</span><span class="ex-equip">Heavy Dumbbell · Open Floor</span></td><td class="sets-cell">3 × 30m each side<span class="sets-ph">Obliques · quadratus lumborum · anti-lateral flexion</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">—</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Walk slow. Fight to stay UPRIGHT — don't lean away from the weight.</strong> This trains the core the way it actually works in real life. Builds incredible functional core strength + oblique definition.</td><td><button class="log-quick-btn" data-exercise="Suitcase Carry" data-session="Lower">LOG</button></td></tr>
+      </tbody>
+    </table></div>
+    <div class="daily-totals" style="margin-top:16px;">
+      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;">VOLUME:</strong> <span style="color:var(--dim);font-size:11px;">Quads 6 sets · Hamstrings 6 sets · Glutes 6 sets · Adductors 3 sets · Abductors 3 sets · Calves (Gastroc) 4 sets · Calves (Soleus) 3 sets · Core 3 sets = 34 total sets</span><br>
+      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;margin-top:4px;display:inline-block;">NOTE:</strong> <span style="color:var(--dim);font-size:11px;">Deadlift is the primary strength lift. Smith/Goblet Squat and Bulgarians provide quad hypertrophy stimulus without duplicating Saturday's back squat.</span>
+    </div>
+    </div></div>
+  </article>
+
+  <!-- ═══════════════════════════════════════════
+       PUSH — Thursday · Chest + Shoulders + Triceps
        ═══════════════════════════════════════════ -->
   <article class="sb reveal" id="push">
     <div class="color-bar push-b"></div>
     <button class="sb-hdr" aria-expanded="false" aria-controls="push-body">
       <div class="sb-letter" style="color:var(--blue)">P</div>
       <div class="sb-info">
-        <div class="sb-day">MONDAY · PUSH</div>
+        <div class="sb-day">THURSDAY · PUSH</div>
         <div class="sb-name">CHEST + FRONT DELTS + LATERAL DELTS + TRICEPS</div>
         <div class="sb-muscles">Pec Major (Clavicular + Sternal) · Anterior Delt · Lateral Delt · Triceps Long Head · Triceps Lateral Head · Serratus · Core</div>
       </div>
       <div class="sb-right">
         <div class="sb-dur">70 MIN</div>
-        <div class="sb-cnt">11 EXERCISES</div>
+        <div class="sb-cnt">10 EXERCISES</div>
         <div class="sb-chev">&#9662;</div>
       </div>
     </button>
@@ -3414,20 +3513,20 @@ body::before {
   </article>
 
   <!-- ═══════════════════════════════════════════
-       PULL — Tuesday · Back + Biceps + Rear Delts + Traps + Forearms
+       PULL — Friday · Back + Biceps + Rear Delts + Traps + Forearms
        ═══════════════════════════════════════════ -->
   <article class="sb reveal" id="pull">
     <div class="color-bar pull-b"></div>
     <button class="sb-hdr" aria-expanded="false" aria-controls="pull-body">
       <div class="sb-letter" style="color:var(--red)">P</div>
       <div class="sb-info">
-        <div class="sb-day">TUESDAY · PULL</div>
+        <div class="sb-day">FRIDAY · PULL</div>
         <div class="sb-name">BACK (WIDTH + THICKNESS) + REAR DELTS + BICEPS + FOREARMS</div>
         <div class="sb-muscles">Lats · Teres Major · Rhomboids · Mid/Lower Traps · Upper Traps · Rear Delts · Infraspinatus · Biceps Long + Short Head · Brachialis · Brachioradialis</div>
       </div>
       <div class="sb-right">
         <div class="sb-dur">65 MIN</div>
-        <div class="sb-cnt">13 EXERCISES</div>
+        <div class="sb-cnt">12 EXERCISES</div>
         <div class="sb-chev">&#9662;</div>
       </div>
     </button>
@@ -3465,20 +3564,20 @@ body::before {
   </article>
 
   <!-- ═══════════════════════════════════════════
-       LEGS — Wednesday · Full Legs
+       LEGS — Saturday · Full Legs
        ═══════════════════════════════════════════ -->
   <article class="sb reveal" id="legs">
     <div class="color-bar legs-b"></div>
     <button class="sb-hdr" aria-expanded="false" aria-controls="legs-body">
       <div class="sb-letter" style="color:var(--green)">L</div>
       <div class="sb-info">
-        <div class="sb-day">WEDNESDAY · LEGS</div>
+        <div class="sb-day">SATURDAY · LEGS</div>
         <div class="sb-name">QUADS + HAMSTRINGS + GLUTES + ADDUCTORS + CALVES</div>
         <div class="sb-muscles">Rectus Femoris · Vastus Lateralis · Vastus Medialis · Biceps Femoris · Semitendinosus · Glute Max · Adductors · Gastrocnemius · Soleus</div>
       </div>
       <div class="sb-right">
         <div class="sb-dur">75 MIN</div>
-        <div class="sb-cnt">12 EXERCISES</div>
+        <div class="sb-cnt">10 EXERCISES</div>
         <div class="sb-chev">&#9662;</div>
       </div>
     </button>
@@ -3510,104 +3609,6 @@ body::before {
     </table></div>
     <div class="daily-totals" style="margin-top:16px;">
       <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;">VOLUME:</strong> <span style="color:var(--dim);font-size:11px;">Quads 10 sets · Hamstrings 6 sets · Glutes 3 sets · Adductors 3 sets · Calves (Gastroc) 4 sets · Calves (Soleus) 3 sets · Core 3 sets = 32 total sets</span>
-    </div>
-    </div></div>
-  </article>
-
-  <!-- ═══════════════════════════════════════════
-       UPPER — Friday · Full Upper Body
-       ═══════════════════════════════════════════ -->
-  <article class="sb reveal" id="upper">
-    <div class="color-bar upper-b"></div>
-    <button class="sb-hdr" aria-expanded="false" aria-controls="upper-body">
-      <div class="sb-letter" style="color:var(--orange)">U</div>
-      <div class="sb-info">
-        <div class="sb-day">FRIDAY · UPPER</div>
-        <div class="sb-name">CHEST + BACK + ALL 3 DELT HEADS + BICEPS + TRICEPS + TRAPS</div>
-        <div class="sb-muscles">Pecs · Lats · Rhomboids · Anterior/Lateral/Posterior Delts · Biceps · Triceps · Upper Traps · Core</div>
-      </div>
-      <div class="sb-right">
-        <div class="sb-dur">70 MIN</div>
-        <div class="sb-cnt">13 EXERCISES</div>
-        <div class="sb-chev">&#9662;</div>
-      </div>
-    </button>
-    <div class="sb-body" id="upper-body"><div class="sb-inner">
-      <div style="padding:16px 0 20px;border-bottom:1px solid var(--border);margin-bottom:16px;">
-        <div style="font-size:10px;letter-spacing:2px;color:var(--acid);margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;">WARM-UP · 6 MIN</div>
-        <div style="font-size:12px;color:var(--dim);line-height:2;">
-          <strong style="color:var(--bright)">1.</strong> Band Pull-Aparts — 2 × 15 <span style="color:var(--muted)">(rear delts, scapular retractors)</span><br>
-          <strong style="color:var(--bright)">2.</strong> Cat-Cow + Thoracic Rotations — 1 min <span style="color:var(--muted)">(spine mobility for overhead work)</span><br>
-          <strong style="color:var(--bright)">3.</strong> OHP Ramp: bar×10 → 50%×6 → 70%×3 → 85%×2 <span style="color:var(--muted)">(prime for heavy pressing)</span>
-        </div>
-      </div>
-    <div class="ex-table-wrap"><table class="ex-table">
-      <thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Tempo</th><th>Rest</th><th>Coaching Cue</th><th></th></tr></thead>
-      <tbody>
-        <tr><td class="ex-num" style="color:var(--acid)">S1</td><td><span class="ex-name">Barbell Overhead Press (standing)</span><span class="ex-equip">Barbell · Rack · STRENGTH</span></td><td class="sets-cell">4 × 4-6<span class="sets-ph">RIR 1-2 · Anterior/lateral delt · triceps · upper chest · core</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-1</td><td class="rest-cell">3 min</td><td class="note-cell"><strong>STRICT — no leg drive. Bar path directly over mid-foot. Squeeze glutes for stability.</strong> Add 2.5kg when you hit 6 on all sets. This builds the overhead pressing strength base.</td><td><button class="log-quick-btn" data-exercise="Barbell OHP" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num" style="color:var(--acid)">S2</td><td><span class="ex-name">Weighted Chin-Ups (supinated grip)</span><span class="ex-equip">Pull-up Bar + Dip Belt · STRENGTH</span></td><td class="sets-cell">4 × 4-6<span class="sets-ph">RIR 1-2 · Lats · biceps · lower traps · rhomboids</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">3 min</td><td class="note-cell"><strong>Dead hang between reps — full lat stretch. Chest to bar. Drive elbows down and back.</strong> Supinated grip recruits biceps heavily. Add weight when you hit 6 on all sets. <em style="color:var(--muted)">Alt: Supinated Lat Pulldown</em></td><td><button class="log-quick-btn" data-exercise="Weighted Chin-Ups" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">01</td><td><span class="ex-name">Dumbbell Flat Press</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Mid chest · anterior delt · triceps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">—</td><td class="note-cell"><strong>Go straight into A2.</strong> Deep stretch at bottom — let DBs drop LOW past chest level. This covers the hypertrophy chest stimulus. <span class="ttag tt-ss">SUPERSET A1</span></td><td><button class="log-quick-btn" data-exercise="Dumbbell Flat Press" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">02</td><td><span class="ex-name">Chest-Supported Dumbbell Row</span><span class="ex-equip">30° Incline Bench + DBs</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Lats · rhomboids · mid traps · rear delts</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-1-1-0</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Pronated grip for more upper back. Squeeze scapulae at top 1s.</strong> Chest support = zero lower back stress. Saves erectors for tomorrow's deadlifts. <span class="ttag tt-ss">SUPERSET A2</span></td><td><button class="log-quick-btn" data-exercise="Chest-Supported DB Row" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">03</td><td><span class="ex-name">Dumbbell Lateral Raise (seated, leaned)</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">4 × 12-15<span class="sets-ph">Lateral delt (medial head)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Lean forward 15° to reduce front delt. Raise until arms parallel to floor. Hold 2s.</strong> Drop set on final set: drop 30%, rep to failure. This + cable laterals on Push day = boulder shoulders. <span class="ttag tt-ds">DROP SET final</span></td><td><button class="log-quick-btn" data-exercise="DB Lateral Raise" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">04</td><td><span class="ex-name">Cross-Body Hammer Curl</span><span class="ex-equip">Dumbbells · Standing</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Brachialis · brachioradialis · bicep long head</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-1</td><td class="rest-cell">—</td><td class="note-cell"><strong>Curl ACROSS body toward opposite shoulder.</strong> This hits brachialis hard — sits under bicep and pushes the peak UP. Go immediately into B2. <span class="ttag tt-ss">SUPERSET B1</span></td><td><button class="log-quick-btn" data-exercise="Cross-Body Hammer Curl" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">05</td><td><span class="ex-name">Assisted Dips (tricep focus)</span><span class="ex-equip">Assisted Pull-Up/Dip Machine · Upright Torso</span></td><td class="sets-cell">3 × 8-10<span class="sets-ph">Triceps all heads · lower chest · anterior delt</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-1</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Use the dip handles on the assisted pull-up machine. Kneel on the pad, stay UPRIGHT — don't lean forward (lean = more chest, upright = more triceps).</strong> Full lockout at top, slow 3s eccentric, go deep until upper arm is parallel. Start with more assistance, reduce weight as you get stronger. Once you can do bodyweight — ditch the assist. <span class="ttag tt-ss">SUPERSET B2</span> <em style="color:var(--muted)">Alt: Close-Grip Bench Press · Bench Dips</em></td><td><button class="log-quick-btn" data-exercise="Assisted Dips" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">06</td><td><span class="ex-name">Dumbbell Shrugs</span><span class="ex-equip">Heavy Dumbbells</span></td><td class="sets-cell">3 × 12-15<span class="sets-ph">Upper traps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">1-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Straight UP — no rolling.</strong> Squeeze at top 2s. Let traps stretch fully at bottom. Big traps frame the shoulders and complete the aesthetic yoke look. <em style="color:var(--muted)">Alt: Barbell or Trap Bar Shrugs</em></td><td><button class="log-quick-btn" data-exercise="Dumbbell Shrugs" data-session="Upper">LOG</button></td></tr>
-        <tr><td class="ex-num">07</td><td><span class="ex-name">Cable Face Pull (rope, high)</span><span class="ex-equip">Cable · Rope · High Pulley</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Rear delts + external rotators + mid traps</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Pull to forehead. At end range, externally rotate — thumbs point backward.</strong> Hits rear delts AND rotator cuff. Shoulder health + aesthetics. Moved here from Pull day for better weekly rear delt distribution.</td><td><button class="log-quick-btn" data-exercise="Cable Face Pull" data-session="Upper">LOG</button></td></tr>
-        <tr class="abs-row"><td class="ex-num" style="color:var(--acid)">CORE</td><td><span class="ex-name">Ab Wheel Rollout (kneeling)</span><span class="ex-equip">Ab Wheel + Mat</span></td><td class="sets-cell">3 × 8-10<span class="sets-ph">Rectus abdominis · TVA · serratus · lats (anti-extension)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-1-3-0</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>SLOW out (3s), pause at full extension (1s), SLOW return (3s).</strong> Tuck pelvis — don't let lower back sag. One of the best core exercises. Don't skip it.</td><td><button class="log-quick-btn" data-exercise="Ab Wheel Rollout" data-session="Upper">LOG</button></td></tr>
-      </tbody>
-    </table></div>
-    <div class="daily-totals" style="margin-top:16px;">
-      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;">VOLUME:</strong> <span style="color:var(--dim);font-size:11px;">Chest 3 sets · Back 7 sets · Shoulders (Lateral) 4 sets · Rear Delts 3 sets · Biceps 3 sets · Triceps 7 sets · Traps 3 sets · Core 3 sets = 33 total sets</span><br>
-      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;margin-top:4px;display:inline-block;">NOTE:</strong> <span style="color:var(--dim);font-size:11px;">Supersets (A1/A2, B1/B2) keep session under 65 min despite high set count. Rest only after completing both exercises.</span>
-    </div>
-    </div></div>
-  </article>
-
-  <!-- ═══════════════════════════════════════════
-       LOWER — Saturday · Full Lower Body
-       ═══════════════════════════════════════════ -->
-  <article class="sb reveal" id="lower">
-    <div class="color-bar lower-b"></div>
-    <button class="sb-hdr" aria-expanded="false" aria-controls="lower-body">
-      <div class="sb-letter" style="color:var(--purple)">L</div>
-      <div class="sb-info">
-        <div class="sb-day">SATURDAY · LOWER</div>
-        <div class="sb-name">POSTERIOR CHAIN + QUADS + GLUTES + ADDUCTORS + CALVES</div>
-        <div class="sb-muscles">Hamstrings · Glute Max/Medius · Erectors · Traps · Quads · VMO · Adductors · Gastrocnemius · Core</div>
-      </div>
-      <div class="sb-right">
-        <div class="sb-dur">70 MIN</div>
-        <div class="sb-cnt">11 EXERCISES</div>
-        <div class="sb-chev">&#9662;</div>
-      </div>
-    </button>
-    <div class="sb-body" id="lower-body"><div class="sb-inner">
-      <div style="padding:16px 0 20px;border-bottom:1px solid var(--border);margin-bottom:16px;">
-        <div style="font-size:10px;letter-spacing:2px;color:var(--acid);margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;">WARM-UP · 10 MIN</div>
-        <div style="font-size:12px;color:var(--dim);line-height:2;">
-          <strong style="color:var(--bright)">1.</strong> 5 min Incline Walk or Rower <span style="color:var(--muted)">(general warm-up)</span><br>
-          <strong style="color:var(--bright)">2.</strong> 90/90 Hip Switches — 2 × 8 each side <span style="color:var(--muted)">(hip internal/external rotation mobility)</span><br>
-          <strong style="color:var(--bright)">3.</strong> Glute Bridge + Clamshell — 1 × 12 each <span style="color:var(--muted)">(activate glute max + medius)</span><br>
-          <strong style="color:var(--bright)">4.</strong> Deadlift Ramp: 40%×6 → 60%×4 → 75%×2 → 85%×1 <span style="color:var(--muted)">(singles to prime CNS, no fatigue)</span>
-        </div>
-      </div>
-    <div class="ex-table-wrap"><table class="ex-table">
-      <thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Tempo</th><th>Rest</th><th>Coaching Cue</th><th></th></tr></thead>
-      <tbody>
-        <tr><td class="ex-num" style="color:var(--acid)">S1</td><td><span class="ex-name">Conventional Deadlift</span><span class="ex-equip">Barbell · Plates · STRENGTH</span></td><td class="sets-cell">4 × 3-5<span class="sets-ph">RIR 1-2 · Entire posterior chain: hams · glutes · erectors · traps · lats · forearms</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">1-0-1-1</td><td class="rest-cell">3-4 min</td><td class="note-cell"><strong>RESET each rep from the floor. Big brace before EVERY pull. Push the floor away — don't pull the bar up.</strong> Add 5kg when you hit 5 on all sets. Most anabolic lift in existence.</td><td><button class="log-quick-btn" data-exercise="Conventional Deadlift" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">01</td><td><span class="ex-name">Smith Machine Squat ↔ Heel-Elevated Goblet Squat</span><span class="ex-equip">Smith Machine (narrow stance, plates under heels) OR Heavy DB + Heel Wedge · PICK ONE EACH WEEK</span></td><td class="sets-cell">3 × 6-8<span class="sets-ph">Quads (upright torso = quad dominant) · core</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-1-1-0</td><td class="rest-cell">2 min</td><td class="note-cell"><strong>OPTION A — Smith Machine Squat:</strong> Narrow stance, feet slightly forward, plates under heels for max quad bias. Go deep — 3s eccentric, 1s pause at bottom, explode up. Heavier loading than goblet squat. <strong>OPTION B — Heel-Elevated Goblet Squat:</strong> Hold heavy DB at chest, heels on plates or wedge. Deep squat, elbows inside knees, upright torso. Great quad stretch and mind-muscle connection. Pick one each week — both replace front squat perfectly. <span class="ttag" style="background:rgba(168,85,247,0.15);color:#a855f7;border-color:rgba(168,85,247,0.3);">ROTATE WEEKLY</span></td><td><button class="log-quick-btn" data-exercise="Smith Machine Squat / Goblet Squat" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">02</td><td><span class="ex-name">Bulgarian Split Squat (dumbbells)</span><span class="ex-equip">DBs · Flat Bench</span></td><td class="sets-cell">3 × 8-10 each<span class="sets-ph">Quads · VMO · glute medius · hip stabilizers</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-0</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Rear foot on bench. Upright torso = more quad. Lean forward = more glute. GO UPRIGHT.</strong> Knee tracks over 2nd toe. Fixes imbalances. <em style="color:var(--muted)">Alt: Walking Lunges or Single-Leg Leg Press</em></td><td><button class="log-quick-btn" data-exercise="Bulgarian Split Squat" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">03</td><td><span class="ex-name">Seated Leg Curl</span><span class="ex-equip">Seated Leg Curl Machine</span></td><td class="sets-cell">3 × 10-12<span class="sets-ph">Hamstrings (knee flexion · deep stretch)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">3-0-1-2</td><td class="rest-cell">90 sec</td><td class="note-cell"><strong>Seat adjusted so pad is just above ankles.</strong> The seated position pre-stretches the hamstrings at the hip — better stretch than lying curl. Control the eccentric 3s, squeeze 2s at full contraction. Final set: partial reps to failure after hitting full ROM failure. <em style="color:var(--muted)">Alt: Lying Leg Curl</em></td><td><button class="log-quick-btn" data-exercise="Seated Leg Curl" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">04</td><td><span class="ex-name">Kettlebell Swing (Russian)</span><span class="ex-equip">Kettlebell · Open Floor</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Glutes · hamstrings · core · CARDIO BURST</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">explosive</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>HINGE, don't squat. Snap hips forward explosively — arms are just hooks.</strong> Bell to chest height (Russian style, not overhead). Squeeze glutes HARD at top. This builds explosive hip extension AND spikes your heart rate — it's strength and conditioning in one. <span class="ttag" style="background:rgba(239,68,68,0.15);color:#ef4444;border-color:rgba(239,68,68,0.3);">CARDIO BURST</span> <em style="color:var(--muted)">Alt: Cable Pull-Through or 45° Back Extension</em></td><td><button class="log-quick-btn" data-exercise="Kettlebell Swing" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">05</td><td><span class="ex-name">Machine Hip Adduction</span><span class="ex-equip">Adductor Machine</span></td><td class="sets-cell">3 × 12-15<span class="sets-ph">Adductor magnus · longus · brevis · gracilis</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Full stretch on eccentric — let legs go wide. Squeeze 2s at close.</strong> Adductors support squat and deadlift stability. Often neglected = often a weak link.</td><td><button class="log-quick-btn" data-exercise="Hip Adductor" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">06</td><td><span class="ex-name">Hip Abductor Machine</span><span class="ex-equip">Abductor Machine</span></td><td class="sets-cell">3 × 15-20<span class="sets-ph">Glute medius · glute minimus · TFL</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-0-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Slow and controlled.</strong> Glute medius creates the upper glute shelf. Improves squat stability and knee tracking. Lean forward slightly to bias glute medius over TFL.</td><td><button class="log-quick-btn" data-exercise="Hip Abductor" data-session="Lower">LOG</button></td></tr>
-        <tr><td class="ex-num">07</td><td><span class="ex-name">Leg Press Calf Raise</span><span class="ex-equip">45° Leg Press Machine</span></td><td class="sets-cell">4 × 8-10<span class="sets-ph">Gastrocnemius (heavy overload, straight knee)</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">2-2-1-2</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>HEAVY — leg press lets you go heavier than standing. Full deep stretch 2s, peak squeeze 2s.</strong> Straight knee = gastroc. Toes pointed straight ahead.</td><td><button class="log-quick-btn" data-exercise="Leg Press Calf Raise" data-session="Lower">LOG</button></td></tr>
-        <tr class="abs-row"><td class="ex-num" style="color:var(--acid)">CORE</td><td><span class="ex-name">Suitcase Carry (heavy DB, one side)</span><span class="ex-equip">Heavy Dumbbell · Open Floor</span></td><td class="sets-cell">3 × 30m each side<span class="sets-ph">Obliques · quadratus lumborum · anti-lateral flexion</span></td><td class="rest-cell" style="color:var(--acid);font-family:monospace;">—</td><td class="rest-cell">60 sec</td><td class="note-cell"><strong>Walk slow. Fight to stay UPRIGHT — don't lean away from the weight.</strong> This trains the core the way it actually works in real life. Builds incredible functional core strength + oblique definition.</td><td><button class="log-quick-btn" data-exercise="Suitcase Carry" data-session="Lower">LOG</button></td></tr>
-      </tbody>
-    </table></div>
-    <div class="daily-totals" style="margin-top:16px;">
-      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;">VOLUME:</strong> <span style="color:var(--dim);font-size:11px;">Quads 6 sets · Hamstrings 6 sets · Glutes 6 sets · Adductors 3 sets · Abductors 3 sets · Calves 4 sets · Core 3 sets = 31 total sets</span><br>
-      <strong style="color:var(--acid);font-size:10px;letter-spacing:2px;margin-top:4px;display:inline-block;">NOTE:</strong> <span style="color:var(--dim);font-size:11px;">Deadlift is the primary strength lift. Front Squat and Bulgarians provide quad hypertrophy stimulus without duplicating Wednesday's back squat.</span>
     </div>
     </div></div>
   </article>
@@ -4062,7 +4063,7 @@ body::before {
 <!-- FOOTER -->
 <footer class="footer">
   <div class="ft-logo">FORGE</div>
-  <div class="ft-info">VISHNU TEJA · 107KG · 186CM · 28% BF<br>35IN to 30IN WAIST · PPL / UPPER-LOWER · 5 DAYS/WEEK<br>YOUR BODY IS A REFLECTION OF YOUR DISCIPLINE</div>
+  <div class="ft-info">VISHNU TEJA · 107KG · 186CM · 28% BF<br>35IN to 30IN WAIST · UPPER-LOWER / PPL · 5 DAYS/WEEK<br>YOUR BODY IS A REFLECTION OF YOUR DISCIPLINE</div>
 </footer>
 
 <!-- TOAST -->
@@ -4172,7 +4173,7 @@ const EXERCISE_VIDEOS = {
   'Chest-Supported Dumbbell Row': 'XLoIFFXjFyY',
   'Dumbbell Shrugs': '3VcKaXpzqRo',
   'Cross-Body Hammer Curl': '7MrzVaPM0Uw',
-  'Assisted Dips (tricep focus)': 'EBnq0A5L_wo',
+  'Dips (BW → Weighted, tricep focus)': 'EBnq0A5L_wo',
   'Cable Face Pull (rope, high)': '0Po47vvj9g4',
   'Front Squat': 'wyDbagKS7Rg',
   'Smith Machine Squat': 'sM6XUdt1rm4',
@@ -5917,11 +5918,11 @@ function initPlateCalc() {
 
 function initTodayBanner() {
   const dayMap = {
-    1: { session: 'push', name: 'PUSH — Chest + Shoulders + Triceps', muscles: 'Pec Major · Anterior Delt · Lateral Delt · Triceps · Serratus · Core', icon: '💪', color: 'var(--blue)' },
-    2: { session: 'pull', name: 'PULL — Back + Biceps + Rear Delts', muscles: 'Lats · Rhomboids · Traps · Rear Delts · Biceps · Forearms · Core', icon: '🏋️', color: 'var(--red)' },
-    3: { session: 'legs', name: 'LEGS — Full Lower Body', muscles: 'Quads · Hamstrings · Glutes · Adductors · Calves · Core', icon: '🦵', color: 'var(--green)' },
-    5: { session: 'upper', name: 'UPPER — Full Upper Body', muscles: 'Chest · Back · All 3 Delt Heads · Biceps · Triceps · Traps · Core', icon: '⚡', color: 'var(--orange)' },
-    6: { session: 'lower', name: 'LOWER — Posterior Chain Focus', muscles: 'Hamstrings · Glutes · Quads · Adductors · Abductors · Calves · Core', icon: '🔥', color: 'var(--purple)' },
+    1: { session: 'upper', name: 'UPPER — Full Upper Body', muscles: 'Chest · Back · All 3 Delt Heads · Biceps · Triceps · Traps · Core', icon: '⚡', color: 'var(--orange)' },
+    2: { session: 'lower', name: 'LOWER — Posterior Chain Focus', muscles: 'Hamstrings · Glutes · Quads · Adductors · Abductors · Calves · Core', icon: '🔥', color: 'var(--purple)' },
+    4: { session: 'push', name: 'PUSH — Chest + Shoulders + Triceps', muscles: 'Pec Major · Anterior Delt · Lateral Delt · Triceps · Serratus · Core', icon: '💪', color: 'var(--blue)' },
+    5: { session: 'pull', name: 'PULL — Back + Biceps + Rear Delts', muscles: 'Lats · Rhomboids · Traps · Rear Delts · Biceps · Forearms · Core', icon: '🏋️', color: 'var(--red)' },
+    6: { session: 'legs', name: 'LEGS — Full Lower Body', muscles: 'Quads · Hamstrings · Glutes · Adductors · Calves · Core', icon: '🦵', color: 'var(--green)' },
   };
 
   const today = new Date().getDay();
