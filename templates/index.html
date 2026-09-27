@@ -2657,6 +2657,7 @@ body::before {
 
 /* ── PREMIUM RESPONSIVE ADJUSTMENTS ── */
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; }
   .nav {
     top: 0 !important;
     left: 0 !important;
@@ -2674,6 +2675,10 @@ body::before {
     font-size: 14px !important;
     letter-spacing: 4px !important;
   }
+  .hero {
+    min-height: 85vh !important;
+    padding: var(--nav-h) 16px 40px !important;
+  }
   .hero-title {
     font-size: clamp(42px, 10vw, 100px) !important;
     letter-spacing: -2px !important;
@@ -2681,6 +2686,10 @@ body::before {
   }
   .hero-content {
     padding: 0 16px !important;
+  }
+  .hero-sub {
+    font-size: 13px !important;
+    margin-bottom: 20px !important;
   }
   .mobile-menu {
     top: 44px !important;
@@ -2698,29 +2707,91 @@ body::before {
     font-size: 11px !important;
     letter-spacing: 1.5px !important;
   }
+  .stats-strip {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .sc {
+    padding: 20px 8px !important;
+  }
   .sc-v {
-    font-size: 32px !important;
+    font-size: 26px !important;
+  }
+  .sc-u {
+    font-size: 12px !important;
+  }
+  .sc-l {
+    font-size: 8px !important;
+    letter-spacing: 1.5px !important;
+    margin-top: 4px !important;
+  }
+  .section {
+    padding: 40px 16px !important;
+  }
+  .sec-h {
+    font-size: clamp(28px, 7vw, 42px) !important;
+  }
+  .week-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 20px !important;
+  }
+  .day-card {
+    padding: 16px 12px !important;
+    border-radius: 12px !important;
   }
   .dc-type {
     font-size: 14px !important;
   }
+  .dc-name {
+    font-size: 9px !important;
+  }
+  .dc-time {
+    font-size: 8px !important;
+  }
+  #sessionsBody {
+    padding: 16px !important;
+  }
+  .sb-hdr {
+    padding: 14px 12px !important;
+  }
   .sb-name {
-    font-size: 13px !important;
+    font-size: 11px !important;
+  }
+  .sb-muscles {
+    font-size: 9px !important;
   }
   .sb-letter {
-    font-size: 26px !important;
-    min-width: 28px !important;
+    font-size: 22px !important;
+    min-width: 24px !important;
+  }
+  .sb-dur, .sb-cnt {
+    font-size: 9px !important;
   }
   .mc-val {
     font-size: 24px !important;
   }
   .btn-acid, .btn-ghost {
-    padding: 14px 28px !important;
-    border-radius: 12px !important;
+    padding: 12px 24px !important;
+    border-radius: 10px !important;
+    font-size: 11px !important;
   }
   .ft-logo {
-    font-size: 42px !important;
+    font-size: 36px !important;
     letter-spacing: 6px !important;
+  }
+  .quote-bar {
+    padding: 10px 0 !important;
+  }
+  .quote-track {
+    font-size: 10px !important;
+    gap: 40px !important;
+  }
+  .daily-totals {
+    font-size: 10px !important;
+  }
+  .ex-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -2732,11 +2803,35 @@ body::before {
     padding: 0 4px !important;
   }
   .hero-sub {
-    font-size: 13px !important;
+    font-size: 12px !important;
     max-width: 100% !important;
   }
+  .stats-strip {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .sc {
+    padding: 16px 6px !important;
+  }
+  .sc-v {
+    font-size: 22px !important;
+  }
+  .sc-u {
+    font-size: 10px !important;
+  }
   .sec-h {
-    font-size: clamp(32px, 8vw, 48px) !important;
+    font-size: clamp(24px, 7vw, 36px) !important;
+  }
+  .section {
+    padding: 32px 14px !important;
+  }
+  .day-card {
+    padding: 14px 10px !important;
+  }
+  .dc-type {
+    font-size: 13px !important;
+  }
+  .sb-name {
+    font-size: 10px !important;
   }
 }
 </style>
