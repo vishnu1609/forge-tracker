@@ -133,8 +133,8 @@ class TestHeroSection:
 
     def test_hero_eyebrow_shows_program(self, page):
         eyebrow = page.locator(".hero-eyebrow")
-        expect(eyebrow).to_contain_text("UPPER-LOWER")
-        expect(eyebrow).to_contain_text("PPL")
+        expect(eyebrow).to_contain_text("WINTER ARC")
+        expect(eyebrow).to_contain_text("6 DAYS/WEEK")
 
 
 # ═══════════════════════════════════════════════
@@ -160,7 +160,7 @@ class TestScheduleSection:
 
     def test_rest_days_marked(self, page):
         rest_cards = page.locator(".day-card.rest-day")
-        expect(rest_cards).to_have_count(2)  # Wed + Sun
+        expect(rest_cards).to_have_count(1)  # Sun only
 
 
 # ═══════════════════════════════════════════════
@@ -170,8 +170,8 @@ class TestScheduleSection:
 class TestSessionArticles:
     """Training session workout cards."""
 
-    def test_all_five_sessions_exist(self, page):
-        for session_id in ["upper", "lower", "push", "pull", "legs"]:
+    def test_all_six_sessions_exist(self, page):
+        for session_id in ["upper", "lower", "abs", "push", "pull", "legs"]:
             session = page.locator(f"#{session_id}")
             expect(session).to_be_attached()
 
@@ -203,35 +203,41 @@ class TestSessionArticles:
 
         rows = page.locator("#upper-body .ex-name")
         count = rows.count()
-        assert count >= 10, f"Expected at least 10 exercises in Upper, got {count}"
+        assert count == 8, f"Expected 8 exercises in Upper, got {count}"
 
-    def test_lower_has_burpees(self, page):
-        """Verify Medicine Ball Slam was replaced with Burpees."""
+    def test_lower_has_kettlebell_swing(self, page):
+        """Lower session ends with explosive Kettlebell Swing."""
         page.locator("#lower .sb-hdr").click()
         page.wait_for_timeout(500)
 
         body_text = page.locator("#lower-body").text_content()
-        assert "Burpees" in body_text
-        assert "Medicine Ball" not in body_text
+        assert "Kettlebell Swing" in body_text
 
-    def test_lower_has_conventional_deadlift(self, page):
-        page.locator("#lower .sb-hdr").click()
+    def test_pull_has_conventional_deadlift(self, page):
+        page.locator("#pull .sb-hdr").click()
         page.wait_for_timeout(500)
 
-        expect(page.locator("#lower-body >> text=Conventional Deadlift")).to_be_visible()
+        expect(page.locator("#pull-body >> text=Conventional Deadlift")).to_be_visible()
 
-    def test_each_session_has_core_and_abs(self, page):
-        """Every session should have CORE + ABS rows."""
-        for session_id in ["upper", "lower", "push", "pull", "legs"]:
+    def test_abs_session_has_forearm_work(self, page):
+        """Wednesday ABS session includes forearm exercises."""
+        page.locator("#abs .sb-hdr").click()
+        page.wait_for_timeout(500)
+
+        body_text = page.locator("#abs-body").text_content()
+        assert "Farmer" in body_text, "ABS session missing Farmer's Walk"
+        assert "Wrist Curl" in body_text, "ABS session missing Barbell Wrist Curl"
+
+    def test_each_session_has_eight_exercises(self, page):
+        """Every session should have exactly 8 exercises."""
+        for session_id in ["upper", "lower", "abs", "push", "pull", "legs"]:
             page.locator(f"#{session_id} .sb-hdr").click()
             page.wait_for_timeout(300)
 
-            body = page.locator(f"#{session_id}-body")
-            body_text = body.text_content()
-            assert "CORE" in body_text, f"{session_id} missing CORE row"
-            assert "ABS" in body_text, f"{session_id} missing ABS row"
+            rows = page.locator(f"#{session_id}-body .ex-name")
+            count = rows.count()
+            assert count == 8, f"{session_id} has {count} exercises, expected 8"
 
-            # Collapse for next
             page.locator(f"#{session_id} .sb-hdr").click()
             page.wait_for_timeout(200)
 
@@ -248,7 +254,7 @@ class TestExerciseInteractions:
         page.wait_for_timeout(500)
 
         log_btns = page.locator("#upper-body .log-quick-btn")
-        assert log_btns.count() >= 10
+        assert log_btns.count() == 8
 
     def test_log_button_has_data_attributes(self, page):
         page.locator("#upper .sb-hdr").click()
