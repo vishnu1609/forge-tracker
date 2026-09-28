@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="FORGE">
 <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/icon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -1851,6 +1852,8 @@ body::before {
   background: none !important;
   animation: none !important;
   opacity: 0.85;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .nav-tab {
@@ -2871,7 +2874,7 @@ body::before {
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
-  <button class="nav-logo" id="navLogo">FORGE</button>
+  <button class="nav-logo" id="navLogo"><img src="/static/icons/nav-icon.png" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;border-radius:4px;">FORGE</button>
   <div class="nav-tabs" role="tablist">
     <button class="nav-tab active" data-target="hero">Home</button>
     <button class="nav-tab" data-target="schedule">Schedule</button>
