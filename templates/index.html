@@ -33,7 +33,7 @@
   --muted: #556688;
   --blue: #3b82f6;
   --red: #ef4444;
-  --green: #22c55e;
+  --green: #2dd4bf;
   --rest-c: #556688;
   --teal: #2dd4bf;
   --orange: #f97316;
@@ -758,7 +758,7 @@ select.fi { cursor: pointer; }
 .plate-disc[data-kg="25"] { width: 16px; background: #ef4444; height: 70px; }
 .plate-disc[data-kg="20"] { width: 14px; background: #3b82f6; height: 65px; }
 .plate-disc[data-kg="15"] { width: 12px; background: #eab308; height: 58px; }
-.plate-disc[data-kg="10"] { width: 10px; background: #22c55e; height: 50px; }
+.plate-disc[data-kg="10"] { width: 10px; background: #2dd4bf; height: 50px; }
 .plate-disc[data-kg="5"] { width: 8px; background: #f5f5f5; height: 42px; }
 .plate-disc[data-kg="2.5"] { width: 6px; background: #a855f7; height: 36px; }
 .plate-disc[data-kg="1.25"] { width: 4px; background: #f97316; height: 30px; }
@@ -913,7 +913,7 @@ select.fi { cursor: pointer; }
 .hm-cell.today { border-color: var(--bright); box-shadow: 0 0 4px var(--bright); }
 
 /* Sync Status Dot */
-.sync-green { background: #22c55e !important; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+.sync-green { background: #2dd4bf !important; box-shadow: 0 0 6px rgba(45,212,191,0.5); }
 .sync-yellow { background: #eab308 !important; box-shadow: 0 0 6px rgba(234,179,8,0.4); animation: syncPulse 1.2s ease-in-out infinite; }
 .sync-red { background: #ef4444 !important; box-shadow: 0 0 6px rgba(239,68,68,0.4); }
 @keyframes syncPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -2558,17 +2558,18 @@ body::before {
   background: #010103 !important;
 }
 .loader-leopard {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   position: relative;
   z-index: 1;
-  margin-bottom: 16px;
-  filter: drop-shadow(0 0 30px rgba(0,212,255,0.3));
-  animation: loaderLeopardPulse 2s ease-in-out infinite;
+  margin-bottom: 24px;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 25px rgba(0,212,255,0.5)) drop-shadow(0 0 60px rgba(0,212,255,0.2));
+  animation: loaderLeopardPulse 3s ease-in-out infinite;
 }
 @keyframes loaderLeopardPulse {
-  0%, 100% { filter: drop-shadow(0 0 20px rgba(0,212,255,0.2)); transform: scale(1); }
-  50% { filter: drop-shadow(0 0 40px rgba(0,212,255,0.5)); transform: scale(1.03); }
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(0,212,255,0.4)) drop-shadow(0 0 50px rgba(0,212,255,0.15)); transform: scale(1); opacity: 0.9; }
+  50% { filter: drop-shadow(0 0 35px rgba(0,212,255,0.7)) drop-shadow(0 0 80px rgba(0,212,255,0.3)); transform: scale(1.02); opacity: 1; }
 }
 .loader-logo {
   font-family: 'Syne', 'Barlow Condensed', sans-serif !important;
@@ -5742,8 +5743,8 @@ const MUSCLE_COLORS = {
   forearms:  '#a78bfa', // violet
   core:      '#00D4FF', // acid
   obliques:  '#2dd4bf', // teal
-  quads:     '#22c55e', // green
-  hams:      '#84cc16', // lime
+  quads:     '#2dd4bf', // green
+  hams:      '#67e8f9', // lime
   glutes:    '#eab308', // yellow
   adductors: '#06b6d4', // cyan
   calves:    '#f59e0b', // amber gold
@@ -5777,7 +5778,7 @@ const WEEKLY_VOLUME = {
   'Triceps':     { push:6,  pull:0,  legs:0,  upper:7,  lower:0,  color:'#38bdf8' },
   'Traps':       { push:0,  pull:3,  legs:0,  upper:3,  lower:0,  color:'#fb923c' },
   'Forearms':    { push:0,  pull:6,  legs:0,  upper:0,  lower:0,  color:'#a78bfa' },
-  'Quads':       { push:0,  pull:0,  legs:10, upper:0,  lower:6,  color:'#22c55e' },
+  'Quads':       { push:0,  pull:0,  legs:10, upper:0,  lower:6,  color:'#2dd4bf' },
   'Hamstrings':  { push:0,  pull:0,  legs:6,  upper:0,  lower:6,  color:'#4ade80' },
   'Glutes':      { push:0,  pull:0,  legs:3,  upper:0,  lower:6,  color:'#a3e635' },
   'Adductors':   { push:0,  pull:0,  legs:3,  upper:0,  lower:3,  color:'#34d399' },
@@ -5886,7 +5887,7 @@ function initVolumeChart() {
   const legend = $('#volChartLegend');
   const maxVol = Math.max(...Object.values(WEEKLY_VOLUME).map(v => v.push + v.pull + v.legs + v.upper + v.lower));
   const days = ['push','pull','legs','upper','lower'];
-  const dayColors = { push:'#3b82f6', pull:'#ef4444', legs:'#22c55e', upper:'#f97316', lower:'#a855f7' };
+  const dayColors = { push:'#3b82f6', pull:'#ef4444', legs:'#2dd4bf', upper:'#f97316', lower:'#a855f7' };
 
   let html = '';
   Object.entries(WEEKLY_VOLUME).forEach(([muscle, vols]) => {
