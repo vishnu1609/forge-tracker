@@ -974,7 +974,7 @@ select.fi { cursor: pointer; }
 }
 
 /* ── SNOWFALL ── */
-#snowCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+#snowCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999999; }
 </style>
 <!-- CDN: GSAP + ScrollTrigger + VanillaTilt -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -2557,10 +2557,23 @@ body::before {
 .forge-loader {
   background: #010103 !important;
 }
+.loader-leopard {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 30px rgba(0,212,255,0.3));
+  animation: loaderLeopardPulse 2s ease-in-out infinite;
+}
+@keyframes loaderLeopardPulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(0,212,255,0.2)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 40px rgba(0,212,255,0.5)); transform: scale(1.03); }
+}
 .loader-logo {
   font-family: 'Syne', 'Barlow Condensed', sans-serif !important;
   font-weight: 800 !important;
-  font-size: 72px !important;
+  font-size: 28px !important;
   letter-spacing: 14px !important;
 }
 .loader-sub {
@@ -2851,6 +2864,7 @@ body::before {
     <div class="loader-ring"></div>
     <div class="loader-ring"></div>
   </div>
+  <img src="/static/icons/icon-512.png" alt="" class="loader-leopard">
   <div class="loader-logo">FORGE</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   <div class="loader-sub">Initializing protocol</div>
