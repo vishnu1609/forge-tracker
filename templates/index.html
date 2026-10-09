@@ -4451,8 +4451,14 @@ body::before {
     <div class="tab-panel active" id="tab-body">
       <div class="form-grid">
         <div class="fg"><label class="fl" for="bDate">DATE</label><input type="date" class="fi" id="bDate" required></div>
-        <div class="fg"><label class="fl" for="bWeight">WEIGHT (KG)</label><input type="number" step="0.1" min="50" max="200" class="fi" id="bWeight" placeholder="107.0" inputmode="decimal"></div>
-        <div class="fg"><label class="fl" for="bWaist">WAIST (INCHES)</label><input type="number" step="0.25" min="25" max="60" class="fi" id="bWaist" placeholder="35.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bWeight">WEIGHT (KG)</label><input type="number" step="0.1" min="30" max="250" class="fi" id="bWeight" placeholder="105.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bWaist">WAIST (INCHES)</label><input type="number" step="0.25" min="20" max="60" class="fi" id="bWaist" placeholder="35.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bBodyFat">BODY FAT %</label><input type="number" step="0.1" min="3" max="60" class="fi" id="bBodyFat" placeholder="25.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bMuscle">MUSCLE MASS (KG)</label><input type="number" step="0.1" min="10" max="120" class="fi" id="bMuscle" placeholder="42.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bWater">WATER %</label><input type="number" step="0.1" min="20" max="80" class="fi" id="bWater" placeholder="55.0" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bBone">BONE MASS (KG)</label><input type="number" step="0.1" min="1" max="10" class="fi" id="bBone" placeholder="3.5" inputmode="decimal"></div>
+        <div class="fg"><label class="fl" for="bBMR">BMR (KCAL)</label><input type="number" step="1" min="800" max="4000" class="fi" id="bBMR" placeholder="1950" inputmode="numeric"></div>
+        <div class="fg"><label class="fl" for="bVisceral">VISCERAL FAT</label><input type="number" step="1" min="1" max="30" class="fi" id="bVisceral" placeholder="12" inputmode="numeric"></div>
         <div class="fg fg-wide"><label class="fl" for="bNotes">NOTES (OPTIONAL)</label><input type="text" class="fi" id="bNotes" placeholder="How you felt today..."></div>
       </div>
       <div class="btn-row">
@@ -4460,8 +4466,8 @@ body::before {
         <button class="btn-ghost" data-clear="body">CLEAR ALL</button>
       </div>
       <div class="log-wrap">
-        <table class="log-table"><thead><tr><th>Date</th><th>Weight</th><th>Waist</th><th>Notes</th><th></th></tr></thead><tbody id="bodyLogBody"></tbody></table>
-        <div id="bodyEmpty" class="empty-state"><div class="empty-icon">&#9678;</div><div class="empty-txt">NO LOGS YET</div><div class="empty-hint">Log your starting weight + waist to begin tracking.</div></div>
+        <table class="log-table"><thead><tr><th>Date</th><th>Weight</th><th>Waist</th><th>Fat%</th><th>Muscle</th><th>Water%</th><th></th></tr></thead><tbody id="bodyLogBody"></tbody></table>
+        <div id="bodyEmpty" class="empty-state"><div class="empty-icon">&#9678;</div><div class="empty-txt">NO LOGS YET</div><div class="empty-hint">Log your starting weight + waist to begin tracking. Enter data from your Dr. Trust 360 scale.</div></div>
       </div>
     </div>
 
@@ -5830,11 +5836,17 @@ function initTracker() {
     const date = bDate.value;
     const weight = parseFloat($('#bWeight').value);
     const waist = parseFloat($('#bWaist').value);
+    const bodyFat = parseFloat($('#bBodyFat').value);
+    const muscle = parseFloat($('#bMuscle').value);
+    const water = parseFloat($('#bWater').value);
+    const bone = parseFloat($('#bBone').value);
+    const bmr = parseFloat($('#bBMR').value);
+    const visceral = parseFloat($('#bVisceral').value);
     const notes = $('#bNotes').value.trim();
-    if (!date || (!weight && !waist)) { toast('Enter date + at least weight or waist'); return; }
-    const entry = { date, weight: weight || null, waist: waist || null, notes };
+    if (!date || (!weight && !waist && !bodyFat)) { toast('Enter date + at least one metric'); return; }
+    const entry = { date, weight: weight || null, waist: waist || null, bodyFat: bodyFat || null, muscle: muscle || null, water: water || null, bone: bone || null, bmr: bmr || null, visceral: visceral || null, notes };
     await forgeDB.addBody(entry);
-    $('#bWeight').value = ''; $('#bWaist').value = ''; $('#bNotes').value = '';
+    ['#bWeight','#bWaist','#bBodyFat','#bMuscle','#bWater','#bBone','#bBMR','#bVisceral','#bNotes'].forEach(s => $(s).value = '');
     renderBodyLogs();
     toast('Body metrics logged!');
   });
@@ -5966,7 +5978,9 @@ function renderBodyLogs() {
       <td>${formatDate(l.date)}</td>
       <td>${l.weight ? l.weight + ' kg' : '—'}</td>
       <td>${l.waist ? l.waist + ' in' : '—'}</td>
-      <td class="note-cell">${l.notes || '—'}</td>
+      <td>${l.bodyFat ? l.bodyFat + '%' : '—'}</td>
+      <td>${l.muscle ? l.muscle + ' kg' : '—'}</td>
+      <td>${l.water ? l.water + '%' : '—'}</td>
       <td><button class="del-btn" data-type="body" data-idx="${i}">×</button></td>
     </tr>
   `).join('');
